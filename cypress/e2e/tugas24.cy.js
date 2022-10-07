@@ -39,6 +39,9 @@ describe("Browser Actions", () => {
 
   it("Click Keep me signed in", () => {
     const checkbox = cy.get("input[id='user_remember_me']");
-    checkbox.click();
+    checkbox.not("[disabled]");
+    checkbox.check();
+    checkbox.should("be.checked");
+    // checkbox.click();
   });
 });
