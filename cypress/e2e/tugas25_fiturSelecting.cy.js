@@ -126,9 +126,14 @@ describe("Inventory page test case", () => {
     // cy.get(".product_sort_container").select("az").should("have.value", "az"); //Ketika pertama dijalankan bisa
     // cy.get(".product_sort_container").select("za").should("have.value", za); //Ketika kedua dijalankan malah error
     // Tapi kalau pakai pengecekan ini bisa 3 3nya
-    cy.get(".product_sort_container").select("Name (A to Z)");
-    cy.get(".product_sort_container").select("Name (Z to A)");
-    cy.get(".product_sort_container").select("Price (low to high)");
-    cy.get(".product_sort_container").select("Price (high to low)");
+    // cy.get(".product_sort_container").select("Name (A to Z)");
+    // cy.get(".product_sort_container").select("Name (Z to A)");
+    // cy.get(".product_sort_container").select("Price (low to high)");
+    // cy.get(".product_sort_container").select("Price (high to low)");
+
+    cy.get(".product_sort_container")
+      .select(["Name (A to Z)", "Name (Z to A)"])
+      .invoke("val")
+      .should("deep.equal", ["az", "za"]);
   });
 });
